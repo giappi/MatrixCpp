@@ -16,13 +16,17 @@ template<class T>
 class Matrix
 {
 public:
-    Matrix(ui32 rows, ui32 cols);
+
+	/* initialaze matrix with numbers of rows, numbers of comlumns, and fill with a value */
+    Matrix(ui32 rows, ui32 cols, T fill_value = 0);
     /* init matrix with two dimensions array list */
     Matrix(std::initializer_list<std::initializer_list<T>> list);
     /* copy constructor */
     Matrix(Matrix<T>& matrix);
     ~Matrix();
+
 public:
+
     /* get element at @row_index and @col_index */
     T getElementAt(ui32 row_index, ui32 col_index);
 

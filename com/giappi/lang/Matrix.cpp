@@ -22,7 +22,7 @@ template class Matrix<double>;
 
 
 template<class T>
-Matrix<T>::Matrix(ui32 rows, ui32 cols)
+Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0)
 {
     m_rows = rows;
     m_cols = cols;
@@ -32,7 +32,7 @@ Matrix<T>::Matrix(ui32 rows, ui32 cols)
         m_matrix[i] = new T[cols];
         for (int j = cols; j--;)
         {
-            m_matrix[i][j] = (T)0;
+			m_matrix[i][j] = fill_value;
         }
     }
 }
@@ -120,7 +120,7 @@ std::string Matrix<T>::toString()
             s += std::to_string(m_matrix[i][j]);
             j < m_cols - 1 && (s += "\t", 0);
         }
-        s += "\n";
+        i < m_rows -1 && (s += "\n", 0);
     }
     return s;
 }

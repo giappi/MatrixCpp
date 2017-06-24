@@ -8,30 +8,55 @@
 #include <stdio.h>
 #include "com/giappi/lang/Matrix.h"
 
+
+void testCreate()
+{
+	printf("\n");
+	printf("Initialze with list:\n");
+	Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10} };
+	printf("Matrix  A:\n%s\n", A.toString().c_str());
+	printf("A.columns: %d\n", A.getHeight());
+	printf("A.rows   : %d\n", A.getWidth());
+
+	printf("\n");
+	printf("Initialze with rows and cols:\n");
+	Matrix<int> B = Matrix<int>(2, 3);
+	printf("Matrix B:\n%s\n", B.toString().c_str());
+	printf("Set value for B:\n");
+	B[0][0] = 1;
+	B[0][1] = 2;
+	B[0][2] = 3;
+	B[1][0] = -6;
+	B[1][1] = 7;
+	B[1][2] = 8;
+	printf("Matrix B:\n%s\n", B.toString().c_str());
+	printf("Element at (1, 0) is %d\n", B[1][0]);
+
+	printf("\n");
+	printf("Initialze with rows and cols and fill value:\n");
+	Matrix<int> C = Matrix<int>(3, 3, -1);
+	printf("Matrix C:\n%s\n", C.toString().c_str());
+	printf("\n");
+
+
+}
+
+void testTranspose()
+{
+	Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10 } };
+	printf("Matrix  A:\n%s\n", A.toString().c_str());
+	printf("A.columns: %d\n", A.getHeight());
+	printf("A.rows   : %d\n", A.getWidth());
+
+	printf("Transpose:\n");
+	Matrix<int> B = A.toTranspose();
+	printf("Matrix B:\n%s\n", B.toString().c_str());
+	printf("Matrix A:\n%s\n", A.toString().c_str());
+}
+
 int main()
 {
-    {
-        /*
-        Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10} };
-        */
-        Matrix<int> A = Matrix<int>(2, 3);
-        A[0][0] = 1;
-        A[0][1] = 2;
-        A[0][2] = 3;
-        A[1][0] = -6;
-        A[1][1] = 7;
-        A[1][2] = 8;
-
-        printf("columns: %d\n", A.getHeight());
-        printf("rows   : %d\n", A.getWidth());
-        printf("Matrix A:\n%s\n", A.toString().c_str());
-        printf("Element at (1, 0) is %d\n", A[1][0]);
-
-        printf("\n");
-
-        Matrix<int> B = A.toTranspose();
-        printf("Matrix B:\n%s\n", B.toString().c_str());
-    }
+	testCreate();
 
     return 0;
 }
