@@ -10,13 +10,13 @@
 
 // explicitly instantiate all the template instances
 template class Matrix<char>;
-template class Matrix<unsigned char>;
+//template class Matrix<unsigned char>;
 template class Matrix<int>;
-template class Matrix<unsigned int>;
+//template class Matrix<unsigned int>;
 template class Matrix<long>;
-template class Matrix<unsigned long>;
+//template class Matrix<unsigned long>;
 template class Matrix<long long>;
-template class Matrix<unsigned long long>;
+//template class Matrix<unsigned long long>;
 template class Matrix<float>;
 template class Matrix<double>;
 
@@ -80,6 +80,12 @@ T    Matrix<T>::getElementAt(ui32 row_index, ui32 col_index)
 }
 
 template<class T>
+T    Matrix<T>::getElementAtOr(ui32 row_index, ui32 col_index, T default_value)
+{
+	return (row_index < m_rows && col_index < m_cols) ? m_matrix[row_index][col_index] : default_value;
+}
+
+template<class T>
 void Matrix<T>::setElementAt(ui32 row_index, ui32 col_index, T element)
 {
     m_matrix[row_index][col_index] = element;
@@ -95,6 +101,62 @@ template<class T>
 T*    Matrix<T>::operator[](ui32 index)
 {
     return m_matrix[index];
+}
+
+template<class T>
+Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
+{
+	Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			matrix3.setElementAt(i, j, m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0));
+		}
+	}
+	return matrix3;
+}
+
+template<class T>
+Matrix<T> Matrix<T>::operator-(Matrix<T> matrix1)
+{
+	Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			matrix3.setElementAt(i, j, m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0));
+		}
+	}
+	return matrix3;
+}
+
+template<class T>
+Matrix<T> Matrix<T>::operator-()
+{
+	Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			matrix1[i][j] = -m_matrix[i][j];
+		}
+	}
+	return matrix1;
+}
+
+template<class T>
+boolean Matrix<T>::equals(Matrix<T> matrix1)
+{
+	boolean result = getWidth() == matrix1.getWidth() && getHeight() == matrix1.getHeight();
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			result &= m_matrix[i][j] == matrix1[i][j];
+		}
+	}
+	return result;
 }
 
 template<class T>

@@ -10,6 +10,7 @@
 #include <initializer_list>
 
 typedef unsigned int ui32;
+typedef bool boolean;
 #define null nullptr;
 
 template<class T>
@@ -30,12 +31,25 @@ public:
     /* get element at @row_index and @col_index */
     T getElementAt(ui32 row_index, ui32 col_index);
 
+	/* get element at @row_index and @col_index, if not exist, take default value */
+	T getElementAtOr(ui32 row_index, ui32 col_index, T default_value);
+
     /* get element at @row_index and @col_index */
     void setElementAt(ui32 row_index, ui32 col_index, T element);
 
     /* to get and set element by operator [] */
     const T* operator [](ui32 index) const;
     T* operator [](ui32 index);
+
+	/* add two matrix with same size */
+	Matrix<T> operator +(const Matrix<T> matrix2);
+	/* subtract two matrix with same size */
+	Matrix<T> operator -(const Matrix<T> matrix2);
+	/* negative matrix */
+	Matrix<T> operator -();
+
+	/* compare two matrix */
+	boolean equals(Matrix<T> matrix2);
 
     /* get numbers of rows */
     ui32 getWidth();

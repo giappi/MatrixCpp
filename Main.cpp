@@ -67,9 +67,65 @@ void testRotate()
 	printf("Matrix A:\n%s\n", A.toString().c_str());
 }
 
+void testEquals()
+{
+	Matrix<int> A = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, -1, -2 } };
+	Matrix<int> B = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, -1, -2 } };
+	Matrix<int> C = { { 0, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, -1, -2 } };
+
+	if (A.equals(B) == true && A.equals(C) == false)
+	{
+		printf("Passed!");
+	}
+	else
+	{
+		printf("Failed!");
+	}
+}
+
+void testAdd()
+{
+	Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, 0 }, { 7, 8, 9,  0 } };
+	Matrix<int> B = { { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1,  1 } };
+	Matrix<int> T = { { 2, 3, 4, 1 }, { 5, 6, 7, 1 }, { 8, 9, 10, 1 } };
+
+	Matrix<int> C = A + B;
+	printf("+ Add two matrix: \n");
+	printf("C = A + B:\n%s\n", C.toString().c_str());
+	printf("Expected Result :\n%s\n", T.toString().c_str());
+	if (C.equals(T))
+	{
+		printf("Passed!");
+	}
+	else
+	{
+		printf("Failed!");
+	}
+}
+
+void testMinus()
+{
+	Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, 0 }, { 7, 8, 9, 0 } };
+	Matrix<int> B = { { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 } };
+	Matrix<int> T = { { 0, 1, 2, -1 }, { 3, 4, 5, -1 }, { 6, 7, 8, -1 } };
+
+	Matrix<int> C = A - B;
+	printf("+ Add two matrix: \n");
+	printf("C = A + B:\n%s\n", C.toString().c_str());
+	printf("Expected Result :\n%s\n", T.toString().c_str());
+	if (C.equals(T))
+	{
+		printf("Passed!");
+	}
+	else
+	{
+		printf("Failed!");
+	}
+}
+
 int main()
 {
-	testRotate();
+	testMinus();
 
     return 0;
 }
