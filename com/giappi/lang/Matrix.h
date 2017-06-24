@@ -34,7 +34,7 @@ public:
     /* get element at @row_index and @col_index, if not exist, take default value */
     T getElementAtOr(ui32 row_index, ui32 col_index, T default_value);
 
-    /* get element at @row_index and @col_index */
+    /* set element at @row_index and @col_index */
     void setElementAt(ui32 row_index, ui32 col_index, T element);
 
     /* to get and set element by operator [] */
@@ -70,7 +70,9 @@ public:
     Matrix<T> toTranspose();
 
 public:
+    /* get numbers of rows */
     const ui32 &width;
+    /* get numbers of columns */
     const ui32 &height;
 
 private:
