@@ -126,6 +126,40 @@ std::string Matrix<T>::toString()
 }
 
 template<class T>
+Matrix<T> Matrix<T>::toRotateLeft()
+{
+	// swap rows and cols
+	Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
+
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			matrix_T[j][i] = m_matrix[i][m_cols - 1 -j];
+		}
+	}
+
+	return matrix_T;
+}
+
+template<class T>
+Matrix<T> Matrix<T>::toRotateRight()
+{
+	// swap rows and cols
+	Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
+
+	for (int i = m_rows; i--;)
+	{
+		for (int j = m_cols; j--;)
+		{
+			matrix_T[j][i] = m_matrix[m_rows - 1 - i][j];
+		}
+	}
+
+	return matrix_T;
+}
+
+template<class T>
 Matrix<T> Matrix<T>::toTranspose()
 {
     // swap rows and cols

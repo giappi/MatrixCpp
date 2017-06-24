@@ -46,6 +46,12 @@ public:
     /* get matrix as string that is printable */
     std::string toString();
 
+	/* return a rotated matrix of this matrix */
+	Matrix<T> toRotateLeft();
+
+	/* return a rotated matrix of this matrix */
+	Matrix<T> toRotateRight();
+
     /* return a transpose matrix of this matrix */
     Matrix<T> toTranspose();
 

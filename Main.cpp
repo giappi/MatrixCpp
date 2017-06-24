@@ -54,9 +54,22 @@ void testTranspose()
 	printf("Matrix A:\n%s\n", A.toString().c_str());
 }
 
+void testRotate()
+{
+	Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, 0 }, {7, 8, 9, 0} };
+	printf("Matrix  A:\n%s\n", A.toString().c_str());
+	printf("A.columns: %d\n", A.getHeight());
+	printf("A.rows   : %d\n", A.getWidth());
+
+	printf("Rotate Right:\n");
+	Matrix<int> B = A.toRotateRight().toRotateLeft();
+	printf("Matrix B:\n%s\n", B.toString().c_str());
+	printf("Matrix A:\n%s\n", A.toString().c_str());
+}
+
 int main()
 {
-	testCreate();
+	testRotate();
 
     return 0;
 }

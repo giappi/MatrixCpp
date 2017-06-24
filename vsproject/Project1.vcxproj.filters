@@ -16,9 +16,15 @@
     <ClCompile Include="..\com\giappi\lang\Matrix.cpp">
       <Filter>com.giappi.lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\com\giappi\lang\SquareMatrix.cpp">
+      <Filter>com.giappi.lang</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\com\giappi\lang\Matrix.h">
+      <Filter>com.giappi.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\com\giappi\lang\SquareMatrix.h">
       <Filter>com.giappi.lang</Filter>
     </ClInclude>
   </ItemGroup>

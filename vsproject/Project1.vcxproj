@@ -65,10 +65,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\com\giappi\lang\Matrix.cpp" />
+    <ClCompile Include="..\com\giappi\lang\SquareMatrix.cpp" />
     <ClCompile Include="..\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\com\giappi\lang\Matrix.h" />
+    <ClInclude Include="..\com\giappi\lang\SquareMatrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
