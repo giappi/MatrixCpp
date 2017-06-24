@@ -22,7 +22,7 @@ template class Matrix<double>;
 
 
 template<class T>
-Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0)
+Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0) : width(m_rows), height(m_cols)
 {
     m_rows = rows;
     m_cols = cols;
@@ -38,7 +38,7 @@ Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0)
 }
 
 template<class T>
-Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> lists) : m_rows(0), m_cols(0)
+Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> lists) : m_rows(0), m_cols(0), width(m_rows), height(m_cols)
 {
     m_matrix = new T*[lists.size()];
     for (auto list : lists)
@@ -58,7 +58,7 @@ Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> lists) : m_row
 }
 
 template<class T>
-Matrix<T>::Matrix(Matrix<T>& matrix)
+Matrix<T>::Matrix(Matrix<T>& matrix) : width(m_rows), height(m_cols)
 {
     m_rows = matrix.getWidth();
     m_cols = matrix.getHeight();

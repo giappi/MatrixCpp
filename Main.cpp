@@ -15,8 +15,8 @@ void testCreate()
     printf("Initialze with list:\n");
     Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10} };
     printf("Matrix  A:\n%s\n", A.toString().c_str());
-    printf("A.columns: %d\n", A.getHeight());
-    printf("A.rows   : %d\n", A.getWidth());
+    printf("A.columns: %d\n", A.width);
+    printf("A.rows   : %d\n", A.height);
 
     printf("\n");
     printf("Initialze with rows and cols:\n");
@@ -125,7 +125,7 @@ void testMinus()
 
 int main()
 {
-    testMinus();
+    testCreate();
 
     return 0;
 }

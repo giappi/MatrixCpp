@@ -69,6 +69,10 @@ public:
     /* return a transpose matrix of this matrix */
     Matrix<T> toTranspose();
 
+public:
+    const ui32 &width;
+    const ui32 &height;
+
 private:
     T** m_matrix = null;
     ui32 m_rows = 0;
