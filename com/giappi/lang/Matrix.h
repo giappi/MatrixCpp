@@ -18,7 +18,7 @@ class Matrix
 {
 public:
 
-	/* initialaze matrix with numbers of rows, numbers of comlumns, and fill with a value */
+    /* initialaze matrix with numbers of rows, numbers of comlumns, and fill with a value */
     Matrix(ui32 rows, ui32 cols, T fill_value = 0);
     /* init matrix with two dimensions array list */
     Matrix(std::initializer_list<std::initializer_list<T>> list);
@@ -31,8 +31,8 @@ public:
     /* get element at @row_index and @col_index */
     T getElementAt(ui32 row_index, ui32 col_index);
 
-	/* get element at @row_index and @col_index, if not exist, take default value */
-	T getElementAtOr(ui32 row_index, ui32 col_index, T default_value);
+    /* get element at @row_index and @col_index, if not exist, take default value */
+    T getElementAtOr(ui32 row_index, ui32 col_index, T default_value);
 
     /* get element at @row_index and @col_index */
     void setElementAt(ui32 row_index, ui32 col_index, T element);
@@ -41,15 +41,15 @@ public:
     const T* operator [](ui32 index) const;
     T* operator [](ui32 index);
 
-	/* add two matrix with same size */
-	Matrix<T> operator +(const Matrix<T> matrix2);
-	/* subtract two matrix with same size */
-	Matrix<T> operator -(const Matrix<T> matrix2);
-	/* negative matrix */
-	Matrix<T> operator -();
+    /* add two matrix with same size */
+    Matrix<T> operator +(const Matrix<T> matrix2);
+    /* subtract two matrix with same size */
+    Matrix<T> operator -(const Matrix<T> matrix2);
+    /* negative matrix */
+    Matrix<T> operator -();
 
-	/* compare two matrix */
-	boolean equals(Matrix<T> matrix2);
+    /* compare two matrix */
+    boolean equals(Matrix<T> matrix2);
 
     /* get numbers of rows */
     ui32 getWidth();
@@ -60,11 +60,11 @@ public:
     /* get matrix as string that is printable */
     std::string toString();
 
-	/* return a rotated matrix of this matrix */
-	Matrix<T> toRotateLeft();
+    /* return a rotated matrix of this matrix */
+    Matrix<T> toRotateLeft();
 
-	/* return a rotated matrix of this matrix */
-	Matrix<T> toRotateRight();
+    /* return a rotated matrix of this matrix */
+    Matrix<T> toRotateRight();
 
     /* return a transpose matrix of this matrix */
     Matrix<T> toTranspose();

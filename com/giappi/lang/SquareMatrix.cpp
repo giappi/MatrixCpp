@@ -16,16 +16,16 @@ SquareMatrix<T>::SquareMatrix(ui32 size, T fill_value = 0) : Matrix(size, size, 
 template <class T>
 ui32 SquareMatrix<T>::determinant()
 {
-	return 0;
+    return 0;
 }
 
 template <class T>
 ui32 SquareMatrix<T>::trace()
 {
-	ui32 sum1 = 0;
-	for (ui32 i = m_rows; i--;)
-	{
-		sum += m_matrix[i][i];
-	}
-	return sum;
+    ui32 sum1 = 0;
+    for (ui32 i = m_rows; i--;)
+    {
+        sum += m_matrix[i][i];
+    }
+    return sum;
 }

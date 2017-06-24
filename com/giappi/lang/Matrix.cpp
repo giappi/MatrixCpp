@@ -32,7 +32,7 @@ Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0)
         m_matrix[i] = new T[cols];
         for (int j = cols; j--;)
         {
-			m_matrix[i][j] = fill_value;
+            m_matrix[i][j] = fill_value;
         }
     }
 }
@@ -82,7 +82,7 @@ T    Matrix<T>::getElementAt(ui32 row_index, ui32 col_index)
 template<class T>
 T    Matrix<T>::getElementAtOr(ui32 row_index, ui32 col_index, T default_value)
 {
-	return (row_index < m_rows && col_index < m_cols) ? m_matrix[row_index][col_index] : default_value;
+    return (row_index < m_rows && col_index < m_cols) ? m_matrix[row_index][col_index] : default_value;
 }
 
 template<class T>
@@ -106,57 +106,57 @@ T*    Matrix<T>::operator[](ui32 index)
 template<class T>
 Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
 {
-	Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			matrix3.setElementAt(i, j, m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0));
-		}
-	}
-	return matrix3;
+    Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix3.setElementAt(i, j, m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0));
+        }
+    }
+    return matrix3;
 }
 
 template<class T>
 Matrix<T> Matrix<T>::operator-(Matrix<T> matrix1)
 {
-	Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			matrix3.setElementAt(i, j, m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0));
-		}
-	}
-	return matrix3;
+    Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix3.setElementAt(i, j, m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0));
+        }
+    }
+    return matrix3;
 }
 
 template<class T>
 Matrix<T> Matrix<T>::operator-()
 {
-	Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			matrix1[i][j] = -m_matrix[i][j];
-		}
-	}
-	return matrix1;
+    Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix1[i][j] = -m_matrix[i][j];
+        }
+    }
+    return matrix1;
 }
 
 template<class T>
 boolean Matrix<T>::equals(Matrix<T> matrix1)
 {
-	boolean result = getWidth() == matrix1.getWidth() && getHeight() == matrix1.getHeight();
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			result &= m_matrix[i][j] == matrix1[i][j];
-		}
-	}
-	return result;
+    boolean result = getWidth() == matrix1.getWidth() && getHeight() == matrix1.getHeight();
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            result &= m_matrix[i][j] == matrix1[i][j];
+        }
+    }
+    return result;
 }
 
 template<class T>
@@ -190,35 +190,35 @@ std::string Matrix<T>::toString()
 template<class T>
 Matrix<T> Matrix<T>::toRotateLeft()
 {
-	// swap rows and cols
-	Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
+    // swap rows and cols
+    Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
 
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			matrix_T[j][i] = m_matrix[i][m_cols - 1 -j];
-		}
-	}
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix_T[j][i] = m_matrix[i][m_cols - 1 -j];
+        }
+    }
 
-	return matrix_T;
+    return matrix_T;
 }
 
 template<class T>
 Matrix<T> Matrix<T>::toRotateRight()
 {
-	// swap rows and cols
-	Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
+    // swap rows and cols
+    Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
 
-	for (int i = m_rows; i--;)
-	{
-		for (int j = m_cols; j--;)
-		{
-			matrix_T[j][i] = m_matrix[m_rows - 1 - i][j];
-		}
-	}
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix_T[j][i] = m_matrix[m_rows - 1 - i][j];
+        }
+    }
 
-	return matrix_T;
+    return matrix_T;
 }
 
 template<class T>
