@@ -172,7 +172,7 @@ Matrix<T> Matrix<T>::operator-()
 }
 
 template<class T>
-boolean Matrix<T>::equals(Matrix<T> matrix1)
+boolean Matrix<T>::equals(Matrix<T> matrix1) const
 {
     if (getWidth() != matrix1.getWidth() || getHeight() != matrix1.getHeight())
     {
@@ -215,7 +215,7 @@ ui32 Matrix<T>::getHeight() const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::map(T(*function1)(T))
+Matrix<T> Matrix<T>::map(T(*function1)(T)) const
 {
     Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
     for (int i = m_rows; i--;)
@@ -229,7 +229,7 @@ Matrix<T> Matrix<T>::map(T(*function1)(T))
 }
 
 template<class T>
-std::string Matrix<T>::toString()
+std::string Matrix<T>::toString() const
 {
     std::string s = "";
     for (int i = 0; i < m_rows; ++i)
@@ -246,7 +246,7 @@ std::string Matrix<T>::toString()
 
 
 template<class T>
-Matrix<T> Matrix<T>::toIdentity()
+Matrix<T> Matrix<T>::toIdentity() const
 {
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
     matrix_T.fill((T)1);
@@ -254,7 +254,7 @@ Matrix<T> Matrix<T>::toIdentity()
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toRotateLeft()
+Matrix<T> Matrix<T>::toRotateLeft() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
@@ -271,7 +271,7 @@ Matrix<T> Matrix<T>::toRotateLeft()
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toRotateRight()
+Matrix<T> Matrix<T>::toRotateRight() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
@@ -288,7 +288,7 @@ Matrix<T> Matrix<T>::toRotateRight()
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toTranspose()
+Matrix<T> Matrix<T>::toTranspose() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);

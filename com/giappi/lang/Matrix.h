@@ -52,7 +52,7 @@ public:
     Matrix<T> operator -();
 
     /* compare two matrix */
-    boolean equals(Matrix<T> matrix2);
+    boolean equals(Matrix<T> matrix2) const;
 
     /* fill all elements by @value */
     void fill(T value);
@@ -64,22 +64,22 @@ public:
     ui32 getHeight() const;
 
     /* map matrix by a function: y = f(x) */
-    Matrix<T> map(T (*function1)(T));
+    Matrix<T> map(T (*function1)(T)) const;
 
     /* get matrix as string that is printable */
-    std::string toString();
+    std::string toString() const;
 
     /* get identity matrix (fill matrix by number 1) */
-    Matrix<T> toIdentity();
+    Matrix<T> toIdentity() const;
 
     /* return a rotated matrix of this matrix */
-    Matrix<T> toRotateLeft();
+    Matrix<T> toRotateLeft() const;
 
     /* return a rotated matrix of this matrix */
-    Matrix<T> toRotateRight();
+    Matrix<T> toRotateRight() const;
 
     /* return a transpose matrix of this matrix */
-    Matrix<T> toTranspose();
+    Matrix<T> toTranspose() const;
 
 public:
     /* get numbers of rows */
