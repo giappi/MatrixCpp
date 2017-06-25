@@ -123,10 +123,16 @@ void testMinus()
     }
 }
 
+int square(int x)
+{
+    return x*x;
+}
+
 void testMap()
 {
     Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, -1 }, { 7, 8, 9, 0 } };
-    Matrix<int> B = A.map([](int e) -> int {return e*e; });
+    Matrix<int> B = A.map(square);
+    //Matrix<int> B = A.map([](int e) -> int {return e*e; });
     printf("B = A.map(e => e*e):\n%s\n", B.toString().c_str());
     Matrix<int> T = { { 1, 4, 9, 0 }, { 16, 25, 36, 1 }, { 49, 64, 81, 0 } };
     if (T.equals(B))
@@ -140,9 +146,29 @@ void testMap()
 
 }
 
+void testMultiply()
+{
+    Matrix<int> A = { { 1, 2, 3}, { 4, 5, 6}};
+    Matrix<int> B = { { 7, 8 }, {9, 10}, {11, 12} };
+    Matrix<int> T = { {58, 64 }, {139, 154}};
+
+    Matrix<int> C = A * B;
+    printf("+ Multiply two matrix: \n");
+    printf("C = A * B:\n%s\n", C.toString().c_str());
+    printf("Expected Result :\n%s\n", T.toString().c_str());
+    if (C.equals(T))
+    {
+        printf("Passed!");
+    }
+    else
+    {
+        printf("Failed!");
+    }
+}
+
 int main()
 {
-    testMap();
+    testMultiply();
     //SquareMatrix<int> a(3, 0);
     return 0;
 }

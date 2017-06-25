@@ -46,6 +46,8 @@ public:
     Matrix<T> operator +(const Matrix<T> matrix2);
     /* subtract two matrix with same size */
     Matrix<T> operator -(const Matrix<T> matrix2);
+    /* multiply matrix size (m x p) and size (p x n)  */
+    Matrix<T> operator *(const Matrix<T> matrix2);
     /* negative matrix */
     Matrix<T> operator -();
 
@@ -61,6 +63,7 @@ public:
     /* get numbers of columns */
     ui32 getHeight();
 
+    /* map matrix by a function: y = f(x) */
     Matrix<T> map(T (*function1)(T));
 
     /* get matrix as string that is printable */

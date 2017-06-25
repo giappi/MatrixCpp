@@ -134,6 +134,30 @@ Matrix<T> Matrix<T>::operator-(Matrix<T> matrix1)
 }
 
 template<class T>
+Matrix<T> Matrix<T>::operator*(Matrix<T> matrix1)
+{
+    // check if matrix A(m x p) and B(p x n)
+    if (m_cols != matrix1.m_rows)
+    {
+        return Matrix<T>({ {} });
+    }
+    Matrix<T> matrix3 = Matrix<T>(m_rows, matrix1.m_cols, 0);
+    for (ui32 i = matrix3.m_rows; i--;)
+    {
+        for (ui32 j = matrix3.m_cols; j--;)
+        {
+            ui32 t = 0;
+            for (ui32 k = 0; k < m_cols; k++)
+            {
+                t += m_matrix[i][k] * matrix1.m_matrix[k][j];
+            }
+            matrix3.m_matrix[i][j] = t;
+        }
+    }
+    return matrix3;
+}
+
+template<class T>
 Matrix<T> Matrix<T>::operator-()
 {
     Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
