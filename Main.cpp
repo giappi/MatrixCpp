@@ -125,7 +125,7 @@ void testMinus()
 
 int main()
 {
-    testCreate();
+    testAdd();
     //SquareMatrix<int> a(3, 0);
     return 0;
 }

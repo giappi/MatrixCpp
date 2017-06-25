@@ -112,7 +112,7 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
         for (int j = m_cols; j--;)
         {
             //  size of matrix1 may be difference from this
-            matrix3.setElementAt(i, j, m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0));
+            matrix3.m_matrix[i][j] = m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0);
         }
     }
     return matrix3;
