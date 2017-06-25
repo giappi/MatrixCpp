@@ -8,6 +8,7 @@
 #pragma once
 #include <string>
 #include <initializer_list>
+#include <functional>
 
 typedef unsigned int ui32;
 typedef bool boolean;
@@ -51,14 +52,22 @@ public:
     /* compare two matrix */
     boolean equals(Matrix<T> matrix2);
 
+    /* fill all elements by @value */
+    void fill(T value);
+
     /* get numbers of rows */
     ui32 getWidth();
 
     /* get numbers of columns */
     ui32 getHeight();
 
+    Matrix<T> map(T (*function1)(T));
+
     /* get matrix as string that is printable */
     std::string toString();
+
+    /* get identity matrix (fill matrix by number 1) */
+    Matrix<T> toIdentity();
 
     /* return a rotated matrix of this matrix */
     Matrix<T> toRotateLeft();

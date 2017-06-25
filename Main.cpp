@@ -123,9 +123,26 @@ void testMinus()
     }
 }
 
+void testMap()
+{
+    Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, -1 }, { 7, 8, 9, 0 } };
+    Matrix<int> B = A.map([](int e) -> int {return e*e; });
+    printf("B = A.map(e => e*e):\n%s\n", B.toString().c_str());
+    Matrix<int> T = { { 1, 4, 9, 0 }, { 16, 25, 36, 1 }, { 49, 64, 81, 0 } };
+    if (T.equals(B))
+    {
+        printf("Passed!");
+    }
+    else
+    {
+        printf("Failed!");
+    }
+
+}
+
 int main()
 {
-    testAdd();
+    testMap();
     //SquareMatrix<int> a(3, 0);
     return 0;
 }

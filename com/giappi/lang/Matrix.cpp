@@ -162,6 +162,19 @@ boolean Matrix<T>::equals(Matrix<T> matrix1)
 }
 
 template<class T>
+void Matrix<T>::fill(T value)
+{
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            m_matrix[i][j] == value;
+        }
+    }
+    return;
+}
+
+template<class T>
 ui32 Matrix<T>::getWidth()
 {
     return m_rows;
@@ -171,6 +184,20 @@ template<class T>
 ui32 Matrix<T>::getHeight()
 {
     return m_cols;
+}
+
+template<class T>
+Matrix<T> Matrix<T>::map(T(*function1)(T))
+{
+    Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
+    for (int i = m_rows; i--;)
+    {
+        for (int j = m_cols; j--;)
+        {
+            matrix1.m_matrix[i][j] = function1(m_matrix[i][j]);
+        }
+    }
+    return matrix1;
 }
 
 template<class T>
@@ -187,6 +214,15 @@ std::string Matrix<T>::toString()
         i < m_rows -1 && (s += "\n", 0);
     }
     return s;
+}
+
+
+template<class T>
+Matrix<T> Matrix<T>::toIdentity()
+{
+    Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
+    matrix_T.fill((T)1);
+    return matrix_T;
 }
 
 template<class T>
