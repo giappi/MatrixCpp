@@ -174,7 +174,11 @@ Matrix<T> Matrix<T>::operator-()
 template<class T>
 boolean Matrix<T>::equals(Matrix<T> matrix1)
 {
-    boolean result = getWidth() == matrix1.getWidth() && getHeight() == matrix1.getHeight();
+    if (getWidth() != matrix1.getWidth() || getHeight() != matrix1.getHeight())
+    {
+        return false;
+    }
+    boolean result = true;
     for (int i = m_rows; i--;)
     {
         for (int j = m_cols; j--;)
@@ -237,7 +241,7 @@ std::string Matrix<T>::toString()
         }
         i < m_rows -1 && (s += "\n", 0);
     }
-    return s;
+    return !s.empty() ? s : "<empty>";
 }
 
 
