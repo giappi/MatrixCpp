@@ -8,7 +8,7 @@
 #pragma once
 #include <string>
 #include <initializer_list>
-#include <functional>
+
 
 typedef unsigned int ui32;
 typedef bool boolean;
