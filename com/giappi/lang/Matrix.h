@@ -24,16 +24,16 @@ public:
     /* init matrix with two dimensions array list */
     Matrix(std::initializer_list<std::initializer_list<T>> list);
     /* copy constructor */
-    Matrix(Matrix<T>& matrix);
+    Matrix(const Matrix<T>& matrix);
     ~Matrix();
 
 public:
 
     /* get element at @row_index and @col_index */
-    T getElementAt(ui32 row_index, ui32 col_index);
+    T getElementAt(ui32 row_index, ui32 col_index) const;
 
     /* get element at @row_index and @col_index, if not exist, take default value */
-    T getElementAtOr(ui32 row_index, ui32 col_index, T default_value);
+    T getElementAtOr(ui32 row_index, ui32 col_index, T default_value) const;
 
     /* set element at @row_index and @col_index */
     void setElementAt(ui32 row_index, ui32 col_index, T element);
@@ -58,10 +58,10 @@ public:
     void fill(T value);
 
     /* get numbers of rows */
-    ui32 getWidth();
+    ui32 getWidth() const;
 
     /* get numbers of columns */
-    ui32 getHeight();
+    ui32 getHeight() const;
 
     /* map matrix by a function: y = f(x) */
     Matrix<T> map(T (*function1)(T));

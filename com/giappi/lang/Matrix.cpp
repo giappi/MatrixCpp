@@ -22,7 +22,7 @@ template class Matrix<double>;
 
 
 template<class T>
-Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value = 0) : width(m_rows), height(m_cols)
+Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value) : width(m_rows), height(m_cols)
 {
     m_rows = rows;
     m_cols = cols;
@@ -58,7 +58,7 @@ Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> lists) : m_row
 }
 
 template<class T>
-Matrix<T>::Matrix(Matrix<T>& matrix) : width(m_rows), height(m_cols)
+Matrix<T>::Matrix(const Matrix<T>& matrix) : width(m_rows), height(m_cols)
 {
     m_rows = matrix.getWidth();
     m_cols = matrix.getHeight();
@@ -74,13 +74,13 @@ Matrix<T>::Matrix(Matrix<T>& matrix) : width(m_rows), height(m_cols)
 }
 
 template<class T>
-T    Matrix<T>::getElementAt(ui32 row_index, ui32 col_index)
+T    Matrix<T>::getElementAt(ui32 row_index, ui32 col_index) const
 {
     return m_matrix[row_index][col_index];
 }
 
 template<class T>
-T    Matrix<T>::getElementAtOr(ui32 row_index, ui32 col_index, T default_value)
+T    Matrix<T>::getElementAtOr(ui32 row_index, ui32 col_index, T default_value) const
 {
     return (row_index < m_rows && col_index < m_cols) ? m_matrix[row_index][col_index] : default_value;
 }
@@ -203,13 +203,13 @@ void Matrix<T>::fill(T value)
 }
 
 template<class T>
-ui32 Matrix<T>::getWidth()
+ui32 Matrix<T>::getWidth() const
 {
     return m_rows;
 }
 
 template<class T>
-ui32 Matrix<T>::getHeight()
+ui32 Matrix<T>::getHeight() const
 {
     return m_cols;
 }
