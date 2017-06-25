@@ -111,6 +111,7 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
     {
         for (int j = m_cols; j--;)
         {
+            //  size of matrix1 may be difference from this
             matrix3.setElementAt(i, j, m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0));
         }
     }
@@ -120,12 +121,13 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
 template<class T>
 Matrix<T> Matrix<T>::operator-(Matrix<T> matrix1)
 {
+    // copy size of this
     Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
     for (int i = m_rows; i--;)
     {
         for (int j = m_cols; j--;)
         {
-            matrix3.setElementAt(i, j, m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0));
+            matrix3.m_matrix[i][j] = m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0);
         }
     }
     return matrix3;
@@ -139,7 +141,7 @@ Matrix<T> Matrix<T>::operator-()
     {
         for (int j = m_cols; j--;)
         {
-            matrix1[i][j] = -m_matrix[i][j];
+            matrix1.m_matrix[i][j] = -m_matrix[i][j];
         }
     }
     return matrix1;
@@ -153,7 +155,7 @@ boolean Matrix<T>::equals(Matrix<T> matrix1)
     {
         for (int j = m_cols; j--;)
         {
-            result &= m_matrix[i][j] == matrix1[i][j];
+            result &= m_matrix[i][j] == matrix1.m_matrix[i][j];
         }
     }
     return result;
@@ -197,7 +199,7 @@ Matrix<T> Matrix<T>::toRotateLeft()
     {
         for (int j = m_cols; j--;)
         {
-            matrix_T[j][i] = m_matrix[i][m_cols - 1 -j];
+            matrix_T.m_matrix[j][i] = m_matrix[i][m_cols - 1 -j];
         }
     }
 
@@ -214,7 +216,7 @@ Matrix<T> Matrix<T>::toRotateRight()
     {
         for (int j = m_cols; j--;)
         {
-            matrix_T[j][i] = m_matrix[m_rows - 1 - i][j];
+            matrix_T.m_matrix[j][i] = m_matrix[m_rows - 1 - i][j];
         }
     }
 
@@ -231,7 +233,7 @@ Matrix<T> Matrix<T>::toTranspose()
     {
         for (int j = m_cols; j--;)
         {
-            matrix_T[j][i] = m_matrix[i][j];
+            matrix_T.m_matrix[j][i] = m_matrix[i][j];
         }
     }
 

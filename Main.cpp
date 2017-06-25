@@ -6,7 +6,7 @@
 */
 
 #include <stdio.h>
-#include "com/giappi/lang/Matrix.h"
+#include "com/giappi/lang/SquareMatrix.h"
 
 
 void testCreate()
@@ -126,6 +126,6 @@ void testMinus()
 int main()
 {
     testCreate();
-
+    //SquareMatrix<int> a(3, 0);
     return 0;
 }
