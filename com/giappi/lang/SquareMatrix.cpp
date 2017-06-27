@@ -8,7 +8,7 @@
 #include "SquareMatrix.h"
 
 template<class T>
-SquareMatrix<T>::SquareMatrix(ui32 size, T fill_value = 0) : Matrix(size, size, fill_value)
+SquareMatrix<T>::SquareMatrix(ui32 size, T fill_value) : Matrix<T>(size, size, fill_value)
 {
 
 }
@@ -23,9 +23,9 @@ template <class T>
 ui32 SquareMatrix<T>::trace()
 {
     ui32 sum1 = 0;
-    for (ui32 i = m_rows; i--;)
+    for (ui32 i = Matrix<T>::m_rows; i--;)
     {
-        sum += m_matrix[i][i];
+        sum1 += Matrix<T>::m_matrix[i][i];
     }
-    return sum;
+    return sum1;
 }

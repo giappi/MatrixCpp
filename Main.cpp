@@ -12,14 +12,14 @@
 void testCreate()
 {
     printf("\n");
-    printf("Initialze with list:\n");
+    printf("Initialize with list:\n");
     Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10} };
     printf("Matrix  A:\n%s\n", A.toString().c_str());
-    printf("A.columns: %d\n", A.width);
-    printf("A.rows   : %d\n", A.height);
+    printf("A.columns: %u\n", A.width);
+    printf("A.rows   : %u\n", A.height);
 
     printf("\n");
-    printf("Initialze with rows and cols:\n");
+    printf("Initialize with rows and columns:\n");
     Matrix<int> B = Matrix<int>(2, 3);
     printf("Matrix B:\n%s\n", B.toString().c_str());
     printf("Set value for B:\n");
@@ -33,7 +33,7 @@ void testCreate()
     printf("Element at (1, 0) is %d\n", B[1][0]);
 
     printf("\n");
-    printf("Initialze with rows and cols and fill value:\n");
+    printf("Initialize with rows and cols and fill value:\n");
     Matrix<int> C = Matrix<int>(3, 3, -1);
     printf("Matrix C:\n%s\n", C.toString().c_str());
     printf("\n");
@@ -45,8 +45,8 @@ void testTranspose()
 {
     Matrix<int> A = { { 1, 2, 3 }, { -4, 6, 10 } };
     printf("Matrix  A:\n%s\n", A.toString().c_str());
-    printf("A.columns: %d\n", A.getHeight());
-    printf("A.rows   : %d\n", A.getWidth());
+    printf("A.columns: %u\n", A.getHeight());
+    printf("A.rows   : %u\n", A.getWidth());
 
     printf("Transpose:\n");
     Matrix<int> B = A.toTranspose();
@@ -58,8 +58,8 @@ void testRotate()
 {
     Matrix<int> A = { { 1, 2, 3, 0 }, { 4, 5, 6, 0 }, {7, 8, 9, 0} };
     printf("Matrix  A:\n%s\n", A.toString().c_str());
-    printf("A.columns: %d\n", A.getHeight());
-    printf("A.rows   : %d\n", A.getWidth());
+    printf("A.columns: %u\n", A.getHeight());
+    printf("A.rows   : %u\n", A.getWidth());
 
     printf("Rotate Right:\n");
     Matrix<int> B = A.toRotateRight().toRotateLeft();

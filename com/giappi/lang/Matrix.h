@@ -38,8 +38,9 @@ public:
     /* set element at @row_index and @col_index */
     void setElementAt(ui32 row_index, ui32 col_index, T element);
 
-    /* to get and set element by operator [] */
+    /* to get element by operator [] */
     const T* operator [](ui32 index) const;
+    /* to set element by operator [] */
     T* operator [](ui32 index);
 
     /* add two matrix with same size */
@@ -87,7 +88,7 @@ public:
     /* get numbers of columns */
     const ui32 &height;
 
-private:
+protected:
     T** m_matrix = null;
     ui32 m_rows = 0;
     ui32 m_cols = 0;
