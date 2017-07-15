@@ -8,17 +8,6 @@
 #include "Matrix.h"
 #include <algorithm>
 
-// explicitly instantiate all the template instances
-template class Matrix<char>;
-//template class Matrix<unsigned char>;
-template class Matrix<int>;
-//template class Matrix<unsigned int>;
-template class Matrix<long>;
-//template class Matrix<unsigned long>;
-template class Matrix<long long>;
-//template class Matrix<unsigned long long>;
-template class Matrix<float>;
-template class Matrix<double>;
 
 
 template<class T>
@@ -254,7 +243,7 @@ Matrix<T> Matrix<T>::toIdentity() const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toRotateLeft() const
+Matrix<T> Matrix<T>::toRotatedLeft() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
@@ -271,7 +260,7 @@ Matrix<T> Matrix<T>::toRotateLeft() const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toRotateRight() const
+Matrix<T> Matrix<T>::toRotatedRight() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
@@ -288,7 +277,7 @@ Matrix<T> Matrix<T>::toRotateRight() const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::toTranspose() const
+Matrix<T> Matrix<T>::toTransposed() const
 {
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
@@ -314,3 +303,17 @@ Matrix<T>::~Matrix()
     delete[] m_matrix;
     m_cols = 0;
 }
+
+
+// explicitly instantiate all the template instances
+// important to put this at end of soure files (fix linker in clang compiler)
+template class Matrix<char>;
+//template class Matrix<unsigned char>;
+template class Matrix<int>;
+//template class Matrix<unsigned int>;
+template class Matrix<long>;
+//template class Matrix<unsigned long>;
+template class Matrix<long long>;
+//template class Matrix<unsigned long long>;
+template class Matrix<float>;
+template class Matrix<double>;

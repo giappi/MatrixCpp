@@ -19,7 +19,7 @@ class Matrix
 {
 public:
 
-    /* initialaze matrix with numbers of rows, numbers of comlumns, and fill with a value */
+    /* initialaze matrix with numbers of rows, numbers of columns, and fill with a value */
     Matrix(ui32 rows, ui32 cols, T fill_value = 0);
     /* init matrix with two dimensions array list */
     Matrix(std::initializer_list<std::initializer_list<T>> list);
@@ -74,13 +74,13 @@ public:
     Matrix<T> toIdentity() const;
 
     /* return a rotated matrix of this matrix */
-    Matrix<T> toRotateLeft() const;
+    Matrix<T> toRotatedLeft() const;
 
     /* return a rotated matrix of this matrix */
-    Matrix<T> toRotateRight() const;
+    Matrix<T> toRotatedRight() const;
 
     /* return a transpose matrix of this matrix */
-    Matrix<T> toTranspose() const;
+    Matrix<T> toTransposed() const;
 
 public:
     /* get numbers of rows */
