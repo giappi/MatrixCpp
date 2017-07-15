@@ -16,10 +16,10 @@ Matrix<T>::Matrix(ui32 rows, ui32 cols, T fill_value)
     m_rows = rows;
     m_cols = cols;
     m_matrix = new T*[rows];
-    for (ui32 i = rows; i--;)
+    for (auto i = rows; i--;)
     {
         m_matrix[i] = new T[cols];
-        for (ui32 j = cols; j--;)
+        for (auto j = cols; j--;)
         {
             m_matrix[i][j] = fill_value;
         }
@@ -52,10 +52,10 @@ Matrix<T>::Matrix(const Matrix<T>& matrix)
     m_rows = matrix.getWidth();
     m_cols = matrix.getHeight();
     m_matrix = new T*[m_rows];
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
         m_matrix[i] = new T[m_cols];
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             m_matrix[i][j] = matrix.getElementAt(i, j);
         }
@@ -96,9 +96,9 @@ template<class T>
 Matrix<T> Matrix<T>::operator+(Matrix<T> matrix1)
 {
     Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             //  size of matrix1 may be difference from this
             matrix3.m_matrix[i][j] = m_matrix[i][j] + matrix1.getElementAtOr(i, j, 0);
@@ -112,9 +112,9 @@ Matrix<T> Matrix<T>::operator-(Matrix<T> matrix1)
 {
     // copy size of this
     Matrix<T> matrix3 = Matrix<T>(m_rows, m_cols, 0);
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix3.m_matrix[i][j] = m_matrix[i][j] - matrix1.getElementAtOr(i, j, 0);
         }
@@ -131,12 +131,12 @@ Matrix<T> Matrix<T>::operator*(Matrix<T> matrix1)
         return Matrix<T>({ {} });
     }
     Matrix<T> matrix3 = Matrix<T>(m_rows, matrix1.m_cols, 0);
-    for (ui32 i = matrix3.m_rows; i--;)
+    for (auto i = matrix3.m_rows; i--;)
     {
-        for (ui32 j = matrix3.m_cols; j--;)
+        for (auto j = matrix3.m_cols; j--;)
         {
             ui32 t = 0;
-            for (ui32 k = 0; k < m_cols; k++)
+            for (auto k = 0; k < m_cols; k++)
             {
                 t += m_matrix[i][k] * matrix1.m_matrix[k][j];
             }
@@ -150,9 +150,9 @@ template<class T>
 Matrix<T> Matrix<T>::operator-()
 {
     Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix1.m_matrix[i][j] = -m_matrix[i][j];
         }
@@ -168,9 +168,9 @@ boolean Matrix<T>::equals(Matrix<T> matrix1) const
         return false;
     }
     boolean result = true;
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             result &= m_matrix[i][j] == matrix1.m_matrix[i][j];
         }
@@ -181,9 +181,9 @@ boolean Matrix<T>::equals(Matrix<T> matrix1) const
 template<class T>
 void Matrix<T>::fill(T value)
 {
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             m_matrix[i][j] = value;
         }
@@ -207,9 +207,9 @@ template<class T>
 Matrix<T> Matrix<T>::map(T(*function1)(T)) const
 {
     Matrix<T> matrix1 = Matrix<T>(m_rows, m_cols, 0);
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix1.m_matrix[i][j] = function1(m_matrix[i][j]);
         }
@@ -221,9 +221,9 @@ template<class T>
 std::string Matrix<T>::toString() const
 {
     std::string s = "";
-    for (ui32 i = 0; i < m_rows; ++i)
+    for (auto i = 0; i < m_rows; ++i)
     {
-        for (ui32 j = 0; j < m_cols; ++j)
+        for (auto j = 0; j < m_cols; ++j)
         {
             s += std::to_string(m_matrix[i][j]);
             j < m_cols - 1 && (s += "\t", 0);
@@ -248,9 +248,9 @@ Matrix<T> Matrix<T>::toRotatedLeft() const
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
 
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix_T.m_matrix[j][i] = m_matrix[i][m_cols - 1 -j];
         }
@@ -265,9 +265,9 @@ Matrix<T> Matrix<T>::toRotatedRight() const
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
 
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix_T.m_matrix[j][i] = m_matrix[m_rows - 1 - i][j];
         }
@@ -282,9 +282,9 @@ Matrix<T> Matrix<T>::toTransposed() const
     // swap rows and cols
     Matrix<T> matrix_T = Matrix<T>(m_cols, m_rows);
 
-    for (ui32 i = m_rows; i--;)
+    for (auto i = m_rows; i--;)
     {
-        for (ui32 j = m_cols; j--;)
+        for (auto j = m_cols; j--;)
         {
             matrix_T.m_matrix[j][i] = m_matrix[i][j];
         }
