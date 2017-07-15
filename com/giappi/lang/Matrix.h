@@ -84,9 +84,9 @@ public:
 
 public:
     /* get numbers of rows */
-    const ui32 &width;
+    const ui32 &width = m_cols;
     /* get numbers of columns */
-    const ui32 &height;
+    const ui32 &height = m_rows;
 
 protected:
     T** m_matrix = null;
