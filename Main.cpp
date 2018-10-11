@@ -5,8 +5,8 @@
 * Created on 24/06/2017, 18:14 PM
 */
 
-#include <stdio.h>
 #include "com/giappi/lang/SquareMatrix.h"
+#include <cstdio>
 
 
 void testCreate()
