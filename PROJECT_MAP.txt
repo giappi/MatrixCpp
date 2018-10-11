@@ -1,0 +1,9 @@
+
+[[Project Folder]]
+|__ ...
+|__ com/ (source code folder)
+|__ nbproject/ (Netbeans IDE project folder)
+|__ vsproject/ (Visual Studio project folder)
+|__ CMakeLists.txt
+|__ Main.cpp (test file)
+|__ ...
