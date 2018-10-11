@@ -49,7 +49,7 @@ void testTranspose()
     printf("A.rows   : %u\n", A.getWidth());
 
     printf("Transpose:\n");
-    Matrix<int> B = A.toTranspose();
+    Matrix<int> B = A.toTransposed();
     printf("Matrix B:\n%s\n", B.toString().c_str());
     printf("Matrix A:\n%s\n", A.toString().c_str());
 }
@@ -62,7 +62,7 @@ void testRotate()
     printf("A.rows   : %u\n", A.getWidth());
 
     printf("Rotate Right:\n");
-    Matrix<int> B = A.toRotateRight().toRotateLeft();
+    Matrix<int> B = A.toRotatedRight().toRotatedLeft();
     printf("Matrix B:\n%s\n", B.toString().c_str());
     printf("Matrix A:\n%s\n", A.toString().c_str());
 }
